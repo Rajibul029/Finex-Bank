@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8000/loans",
+  baseURL: "https://finex-bank.onrender.com/loans",
 });
 
 // include JWT from localStorage

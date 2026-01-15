@@ -8,7 +8,7 @@ export default function PayEmi() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [processingId, setProcessingId] = useState(null);
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = "https://finex-bank.onrender.com";
   const fetchLoans = async () => {
     const token = localStorage.getItem("token");
     const headers = { Authorization: `Bearer ${token}` };

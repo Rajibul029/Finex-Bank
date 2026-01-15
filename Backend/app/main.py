@@ -25,7 +25,7 @@ app.include_router(admin_auth_router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173","http://127.0.0.1:5173","http://localhost:5174"],  # React frontend
+    allow_origins=["*"],  # React frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

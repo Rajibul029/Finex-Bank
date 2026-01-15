@@ -1,0 +1,27 @@
+logs
+*.log
+dist
+dist-ssr
+*.local
+.vscode/*
+!.vscode/extensions.json
+.idea
+# Python
+myenv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Environment
+.env
+
+# Logs
+*.log
+.DS_Store  
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

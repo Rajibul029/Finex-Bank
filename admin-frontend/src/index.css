@@ -1,0 +1,15 @@
+@import "tailwindcss";
+.glass-input {
+  @apply w-full p-2 rounded-xl bg-white/10 border border-white/20 
+         text-blue-400 placeholder-blue-400 focus:ring-2 
+         focus:ring-blue-400 focus:outline-none;
+}
+/* Hide scrollbars globally for elements using .scrollbar-hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}

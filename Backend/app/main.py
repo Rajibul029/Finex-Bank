@@ -15,6 +15,13 @@ from Admin.admin_routes import router as admin_router
 from Admin.admin_auth import router as admin_auth_router
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://fbi-2tr3.onrender.com"],  # React frontend
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 router = APIRouter(prefix="/users", tags=["users"])
 app.include_router(users.router)
 router = APIRouter(prefix="/accounts", tags=["accounts"])
@@ -23,13 +30,7 @@ app.include_router(loans.router)
 app.include_router(admin_router)
 app.include_router(admin_auth_router)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://fbi-2tr3.onrender.com"],  # React frontend
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 @app.get("/")
 async def root():

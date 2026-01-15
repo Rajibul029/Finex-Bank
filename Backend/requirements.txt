@@ -1,4 +1,4 @@
-
+pydantic[email]
 fastapi
 uvicorn[standard]
 motor

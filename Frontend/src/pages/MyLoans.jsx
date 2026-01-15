@@ -6,13 +6,13 @@ import { CheckCircle, Clock, XCircle } from "lucide-react";
 export default function MyLoans() {
   const [loans, setLoans] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const BASE_URL = "http://127.0.0.1:8000";
   useEffect(() => {
     const token = localStorage.getItem("token");
     const headers = { Authorization: `Bearer ${token}` };
 
     axios
-      .get("http://127.0.0.1:8000/loans/my-loans", { headers })
+      .get(`${BASE_URL}/loans/my-loans`, { headers })
       .then((res) => {
         setLoans(res.data.loans || []);
       })

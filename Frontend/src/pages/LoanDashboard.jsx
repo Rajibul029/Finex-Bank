@@ -15,13 +15,13 @@ export default function LoanDashboard() {
     duration: "",
     description: "",
   });
-
+  const BASE_URL = "http://127.0.0.1:8000"
   useEffect(() => {
     const token = localStorage.getItem("token");
     const headers = { Authorization: `Bearer ${token}` };
 
     axios
-      .get("http://127.0.0.1:8000/loans/schemes", { headers })
+      .get(`${BASE_URL}/loans/schemes`, { headers })
       .then((res) => setSchemes(res.data.loan_schemes))
       .catch((err) => console.error("Error fetching schemes:", err));
   }, []);
@@ -34,7 +34,7 @@ export default function LoanDashboard() {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/loans/apply",
+        `${BASE_URL}/loans/apply`,
         {
           scheme_id: selectedScheme._id,
           amount: parseFloat(amount),
@@ -61,7 +61,7 @@ export default function LoanDashboard() {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/loans/custom-apply",
+        `${BASE_URL}/loans/custom-apply`,
         {
           name: customLoan.name,
           amount: parseFloat(customLoan.amount),

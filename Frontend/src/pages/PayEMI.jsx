@@ -8,12 +8,12 @@ export default function PayEmi() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [processingId, setProcessingId] = useState(null);
-
+  const BASE_URL = "http://127.0.0.1:8000";
   const fetchLoans = async () => {
     const token = localStorage.getItem("token");
     const headers = { Authorization: `Bearer ${token}` };
     try {
-      const res = await axios.get("http://127.0.0.1:8000/loans/active", { headers });
+      const res = await axios.get(`${BASE_URL}/loans/active`, { headers });
       setLoans(res.data.active_loans || []);
     } catch (err) {
       console.error("Error fetching active loans:", err);
@@ -34,7 +34,7 @@ export default function PayEmi() {
 
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/loans/pay-emi/${loanId}`,
+        `${BASE_URL}/loans/pay-emi/${loanId}`,
         {},
         { headers }
       );
@@ -63,7 +63,7 @@ export default function PayEmi() {
 
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/loans/pay-advance/${loanId}`,
+        `${BASE_URL}/loans/pay-advance/${loanId}`,
         {},
         { headers }
       );
